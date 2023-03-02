@@ -6,23 +6,14 @@ public class Car {
     private String motor;
     private Date manufacteredDate;
     private int price;
-    private Boolean isRented;
+    private String license_plate;
 
-    public Car(int id, String brand, String motor, Date manufacteredDate, int price, Boolean isRented) {
-        this.id = id;
+    public Car(String brand, String motor, Date manufacteredDate, int price, String license_plate) {
         this.brand = brand;
         this.motor = motor;
         this.manufacteredDate = manufacteredDate;
         this.price = price;
-        this.isRented = isRented;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.license_plate = license_plate;
     }
 
     public String getBrand() {
@@ -31,6 +22,17 @@ public class Car {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                " brand='" + brand + '\'' +
+                ", motor='" + motor + '\'' +
+                ", manufacteredDate=" + manufacteredDate +
+                ", price=" + price +
+                ", license_plate='" + license_plate + '\'' +
+                '}';
     }
 
     public String getMotor() {
@@ -57,11 +59,11 @@ public class Car {
         this.price = price;
     }
 
-    public Boolean getRented() {
-        return isRented;
+    public String getLicense_plate() {
+        return license_plate;
     }
 
-    public void setRented(Boolean rented) {
-        isRented = rented;
+    public void setLicense_plate(String license_plate) {
+        this.license_plate = license_plate;
     }
 }

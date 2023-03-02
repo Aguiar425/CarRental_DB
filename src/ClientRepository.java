@@ -44,23 +44,54 @@ public class ClientRepository {
         // CREATING A STATEMENT
         Statement statement = connection.createStatement();
 
-        System.out.println("Insert the id you are  looking for");
+        System.out.println("Insert the id you are looking for");
         int id = Integer.parseInt(input.readLine());
         String query = "SELECT * FROM clients WHERE id = " + id;
 
         ResultSet resultSet = statement.executeQuery(query);
-        System.out.println(resultSet);
         resultSet.next();
         System.out.println("ID: " + resultSet.getInt("id") + "\nName: " + resultSet.getString("name"));
     }
 
-    Client updateClient(Client client) {
+    void updateClient() throws SQLException, IOException {
         // UPDATE Customers SET name = ?, phone_number = ?, email = ? WHERE id = ?
-        return null;
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+
+        // SELECT * FROM Customers WHERE id = ?
+        Connection connection = Main.getConnection();
+        // CREATING A STATEMENT
+        Statement statement = connection.createStatement();
+
+        System.out.println("Insert the id you want to update");
+        int id = Integer.parseInt(input.readLine());
+
+        System.out.println("Insert the NEW name");
+        String name = input.readLine();
+
+        System.out.println("Insert the NEW date (YYYY-MM-DD)");
+        Date date = Date.valueOf(input.readLine());
+
+        System.out.println("Insert the NEW email");
+        String email = input.readLine();
+
+        String query = "UPDATE clients SET name = '" + name + "', birth_date = '" + date + "', email = '" + email + "' WHERE id = " + id;
+
+        statement.execute(query);
+        System.out.println("SUCCESSFUL CLIENT UPDATE!");
     }
 
-    void deleteClient(int id) {
+    void deleteClient(int id) throws SQLException {
         // DELETE FROM Customers WHERE id = ?
+
+        // SELECT * FROM Customers WHERE id = ?
+        Connection connection = Main.getConnection();
+        // CREATING A STATEMENT
+        Statement statement = connection.createStatement();
+
+        String query = "DELETE FROM clients WHERE id = " + id;
+
+        statement.execute(query);
+        System.out.println("Client deleted!");
     }
 
     public List<Client> getClients() throws SQLException {

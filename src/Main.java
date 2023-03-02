@@ -6,16 +6,28 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, IOException {
         ClientRepository clientRepository = new ClientRepository();
+        CarRepository carRepository = new CarRepository();
 
         try {
             clientRepository.getClients().forEach(System.out::println);
+            carRepository.getCars().forEach(System.out::println);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
 
         //clientRepository.createClient();
-        clientRepository.getClient();
+        //clientRepository.getClient();
+
+        //clientRepository.updateClient();
+        //clientRepository.deleteClient(3);
+
+        //carRepository.getCars();
+        //carRepository.createCar();
+        //carRepository.getCar();
+        //carRepository.updateCar();
+
     }
 
     public static Connection getConnection() {
