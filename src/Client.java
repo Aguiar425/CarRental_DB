@@ -5,7 +5,7 @@ public class Client {
     private Date birthDate;
     private String email;
 
-    public Client( String name, Date birthDate, String email) {
+    public Client(String name, Date birthDate, String email) {
         this.name = name;
         this.birthDate = birthDate;
         this.email = email;
@@ -38,7 +38,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                " name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", birthDate=" + birthDate +
                 ", email='" + email + '\'' +
                 '}';

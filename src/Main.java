@@ -45,31 +45,4 @@ public class Main {
 
         return connection;
     }
-
-    /*public static List<Client> getClients() throws SQLException {
-
-        List<Client> clients = new LinkedList<>();
-
-        Connection connection = getConnection();
-        // CREATING A STATEMENT
-        Statement statement = connection.createStatement();
-
-        // CREATIING A QUERY
-        String query = "SELECT * FROM clients";
-
-        // EXECUTING THE QUERY
-        ResultSet resultSet = statement.executeQuery(query);
-
-        // DEALING WITH THE RESULTS
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            Date birthDate = resultSet.getDate("birth_date");
-            String email = resultSet.getString("email");
-
-            clients.add(new Client(name, birthDate, email));
-
-        }
-        return clients;
-    }*/
 }
